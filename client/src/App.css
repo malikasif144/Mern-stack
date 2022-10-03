@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+.logo{
+  height: 60px;
+  width: 60px;
+}
+.signup{
+  height: 500px;
+  width: 950px;
+  background-color: #F8F9FA;
+position: absolute;
+top: 150px;
+left: 200px;
+}
+.sign-image{
+  height: 100px;
+  width: 100px;
+}
+input{
+  border: none;
+  border-bottom: 2px solid black;
+}
