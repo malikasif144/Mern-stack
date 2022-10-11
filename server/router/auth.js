@@ -4,6 +4,7 @@ const router = express.Router();
 require("../db/conn");
 const User = require("../modal/userSchema");
 const bcrypt = require("bcrypt");
+const authenticate=require("../middleware/authenticate")
 
 router.post("/register", async (req, res) => {
   const { name, email, password, work, phone, cpassword } = req.body;
@@ -67,6 +68,7 @@ router.post("/signin", async (req, res) => {
     if(userLogin){
 const isMatch = await bcrypt.compare(password,userLogin.password)
  token =await userLogin.generateAuthToken();
+
  res.cookie("jwtoken",token,{
   expires:new Date(Date.now() + 2589200000),
   httpOnly:true
@@ -83,6 +85,11 @@ if (!isMatch) {
     console.log(err)
 } 
 });
+//about us page
+router.post('/about',authenticate,(req,res) =>{
+
+  res.send(req.rootUser);
+})
 
  
 

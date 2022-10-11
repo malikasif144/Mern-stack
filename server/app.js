@@ -13,10 +13,10 @@ app.use(express.json());
 const PORT=process.env.PORT;
 
 
-const middleware=(req,res,next) =>{
-    console.log(`hello middleware`)
-    next();
-}
+// const middleware=(req,res,next) =>{
+//     console.log(`hello middleware`)
+//     next();
+// }
 
 // middleware();
 
@@ -24,9 +24,9 @@ const middleware=(req,res,next) =>{
 app.get('/',(req,res) =>{
     res.send(`hello world`);
 })
-app.get('/about',middleware,(req,res) =>{
-    res.send(`hello about`);
-})
+// app.get('/about',(req,res) =>{
+//     res.send(`hello about`);
+// })
 app.get('/contact',(req,res) =>{
     res.send(`hello contact`);
 })
